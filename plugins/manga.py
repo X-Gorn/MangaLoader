@@ -141,21 +141,10 @@ async def _folder(bot, callback_query):
                 os.remove(f'./Manga/{file_dir}/{f.stem}.zip')
         shutil.make_archive(file_dir, 'zip', file)
         start_time = time.time()
-        try:
-          await pablo.edit_text('Uploading...')
-        except Exception:
-          time.sleep(3)
-          await pablo.edit_text('Uploading...')
         await bot.send_document(
             update.chat.id,
             file_dir + '.zip',
-            caption=file_dir,
-            progress=progress_for_pyrogram,
-            progress_args=(
-                'Uploading...',
-                pablo,
-                start_time
-            )
+            caption=file_dir
         )
         os.remove(file_dir + '.zip')
         shutil.rmtree(manga_dir)
