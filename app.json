@@ -7,9 +7,9 @@
     "manga",
     "downloader"
   ],
-  "success_url": "https://github.com/X-Gorn/MangaLoader",
-  "website": "https://github.com/X-Gorn",
-  "repository": "https://github.com/X-Gorn/MangaLoader",
+  "success_url": "https://github.com/titu3e",
+  "website": "https://github.com/titu3e",
+  "repository": "https://github.com/titu3e/MangaLoader",
   "env": {
     "BOT_TOKEN": {
       "description": "Your bot token, as a string.",
