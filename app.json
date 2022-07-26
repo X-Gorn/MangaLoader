@@ -28,8 +28,8 @@
       "value": ""
     },
     "AS_ZIP": {
-      "description": "Send files as zip or send files one by one, except for Folder option.",
-      "value": ""
+      "description": "Send files as zip or send files one by one, left empty to send files one by one. except for Folder option.",
+      "value": "ANYTHING"
     }
   },
   "addons": [
