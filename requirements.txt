@@ -1,6 +1,6 @@
 Pyrogram
 TgCrypto
-manga-py==1.33.2
+https://github.com/X-Gorn/manga-py/archive/refs/heads/stable_1.x.zip
 Pillow==8.3.1
 dir2pdf==0.0.3
 tldextract==3.1.0
