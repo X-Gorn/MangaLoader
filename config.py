@@ -5,3 +5,4 @@ class Config(object):
     API_HASH = os.environ['API_HASH']
     BOT_TOKEN = os.environ['BOT_TOKEN']
     OWNER_ID = int(os.environ['OWNER_ID'])
+    AS_ZIP = bool(os.environ['AS_ZIP'])
