@@ -26,6 +26,10 @@
     "OWNER_ID": {
       "description": "Your telegram id, not username. Open https://t.me/MissRose_bot and send /id to bot",
       "value": ""
+    },
+    "AS_ZIP": {
+      "description": "Send files as zip or send files one by one, except for Folder option.",
+      "value": ""
     }
   },
   "addons": [
