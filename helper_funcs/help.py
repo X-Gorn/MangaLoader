@@ -10,12 +10,11 @@ http://1stkissmanga.com
 http://1stkissmanhua.com
 http://365manga.com
 http://3asq.org
-http://7sama.com
 http://8muses.com
 http://ac.qq.com
 http://acomics.ru
 http://addfunny.com
-http://allhentai.ru
+http://allhen.live
 http://allporncomic.com
 http://aloalivn.com
 http://animangaes.com
@@ -34,8 +33,6 @@ http://blogtruyen.com
 http://boyslove.me
 http://catmanga.org
 http://catonhead.com
-http://cdmnet.com.br
-http://centraldemangas.online
 http://chochox.com
 http://cmreader.info
 http://com-x.life
@@ -50,13 +47,11 @@ http://comicpunch.net
 http://comicvn.net
 http://cycomi.com
 http://danbooru.donmai.us
-http://darkskyprojects.org
 http://desu.me
 http://digitalteam1.altervista.org
 http://digitalteamreader.netsons.org
 http://disasterscans.com
 http://dm5.com
-http://doujin-moe.us
 http://doujins.com
 http://e-hentai.org
 http://edelgardescans.com
@@ -72,19 +67,15 @@ http://godsrealmscan.com
 http://grazescans.com
 http://hatigarmscanz.net
 http://heavenmanga.biz
-http://heavenmanga.com
 http://helveticascans.com
 http://hentai-chan.me
 http://hentai-chan.me
-http://hentai-image.com
 http://hentai-img.com
-http://hentai.cafe
 http://hentai2read.com
 http://hentaifox.com
 http://hentaihand.com
 http://hentaihere.com
 http://hentailxx.com
-http://hentainexus.com
 http://hentaiporns.net
 http://hentairead.com
 http://hentaivn.net
@@ -112,26 +103,22 @@ http://kisslove.net
 http://kissmanga.com
 http://kissmanga.in
 http://kkjscans.co
-http://kobato.hologfx.com
 http://kobato.hologfx.com/reader
 http://komikcast.com
-http://komikgue.com
 http://komikid.com
 http://komikstation.com
-http://krakenscans.com
 http://kumanga.com
 http://lector.patyscans.com
 http://leitor.net
 http://leviatanscans.com
 http://lezhin.com
-http://lhscan.net
 http://lhtranslation.net
 http://lilymanga.com
 http://littlexgarden.com
 http://lolibooru.moe
 http://lolivault.net
-http://loveheaven.net
 http://luscious.net
+http://lxhentai.com
 http://lynxscans.com
 http://manga-online.biz
 http://manga-tr.com
@@ -274,7 +261,6 @@ http://nineanime.com
 http://ninemanga.com
 http://nitroscans.com
 http://noranofansub.com
-http://ntsvoidscans.com
 http://onma.me
 http://onmanga.com
 http://otscans.com
@@ -291,7 +277,6 @@ http://pzykosis666hfansub.com
 http://raiderscans.com
 http://randomtranslations.com
 http://ravens-scans.com
-http://raw.senmanga.com
 http://rawdevart.com
 http://rawmangaupdate.com
 http://read.egscans.com
@@ -306,11 +291,9 @@ http://reader.deathtollscans.net
 http://reader.decadencescans.com
 http://reader.evilflowers.com
 http://reader.fos-scans.com
-http://reader.jokerfansub.com
 http://reader.kireicake.com
 http://reader.letitgo.scans.today
 http://reader.manga-download.org
-http://reader.serenade.moe
 http://reader.silentsky-scans.net
 http://reader.thecatscans.com
 http://reader.vortex-scans.com
@@ -324,7 +307,6 @@ http://rocaca.com
 http://s-manga.net
 http://s2manga.com
 http://santosfansub.com
-http://secretscan.co
 http://selfmanga.ru
 http://senmanga.com
 http://sensescans.com
@@ -337,11 +319,9 @@ http://siberowl.com
 http://sixiangscans.com
 http://skscans.com
 http://skymanga.co
-http://sleepypandascans.co
 http://sleepytranslations.com
 http://slide.world-three.org
 http://socialweebs.in
-http://soloscanlation.site
 http://submanga.online
 http://sunday-webry.com
 http://taadd.com
@@ -349,12 +329,10 @@ http://tapas.io
 http://taptaptaptaptap.net
 http://tenmanga.com
 http://the-nonames.com
-http://thetopcomic.com
 http://tonarinoyj.jp
 http://toongod.com
 http://toonily.com
 http://toonily.net
-http://toonpoint.com
 http://topmanhua.com
 http://translate.webtoons.com
 http://tritinia.com
@@ -364,17 +342,13 @@ http://truyenchon.com
 http://truyentranhtuan.com
 http://tsumino.com 
 http://twilightscans.com
-http://universoyuri.com
 http://vanguardbun.com
 http://viz.com
-http://voidscans.com
 http://web-ace.jp
 http://webnovel.live
 http://webtoon.uk
 http://webtoon.xyz
-http://webtoonily.com
 http://webtoons.com
-http://wescans.xyz
 http://westmanga.info
 http://whitecloudpavilion.com
 http://wiemanga.com
@@ -487,3 +461,10 @@ def TimeFormatter(milliseconds: int) -> str:
         ((str(seconds) + "s, ") if seconds else "") + \
         ((str(milliseconds) + "ms, ") if milliseconds else "")
     return tmp[:-2]
+
+
+# https://github.com/MysteryBots/UnzipBot/blob/master/UnzipBot/functions.py
+async def absolute_paths(directory):
+    for dirpath, _, filenames in os.walk(directory):
+        for f in filenames:
+            yield os.path.abspath(os.path.join(dirpath, f))
