@@ -2,7 +2,8 @@ import os, shutil, time, zipfile, glob
 from pyrogram import Client, filters
 from translation import Translation
 from pathlib import Path
-from helper_funcs.help import run_cmd, progress_for_pyrogram
+from helper_funcs.help import run_cmd, progress_for_pyrogram, absolute_paths
+from config import Config
 
 
 pdf_filter = filters.create(lambda _, __, query: query.data.lower() == "pdf")
@@ -44,21 +45,39 @@ async def _pdf(bot, callback_query):
                 cmd = f'dir2pdf --subdirs vol_(.*) Manga/{file_dir}/' + 'vol_{}.pdf' + f' Manga/{file_dir}/'
                 await run_cmd(cmd)
                 shutil.rmtree(f'./Manga/{file_dir}/{f.stem}')
-        shutil.make_archive(file_dir, 'zip', file)
-        start_time = time.time()
-        await pablo.edit_text('Uploading...')
-        await bot.send_document(
-            update.chat.id,
-            file_dir + '.zip',
-            caption=file_dir,
-            progress=progress_for_pyrogram,
-            progress_args=(
-                'Uploading...',
-                pablo,
-                start_time
+        if Config.AS_ZIP:
+            shutil.make_archive(file_dir, 'zip', file)
+            start_time = time.time()
+            await pablo.edit_text('Uploading...')
+            await bot.send_document(
+                update.chat.id,
+                file_dir + '.zip',
+                caption=file_dir,
+                progress=progress_for_pyrogram,
+                progress_args=(
+                    'Uploading...',
+                    pablo,
+                    start_time
+                )
             )
-        )
-        os.remove(file_dir + '.zip')
+            os.remove(file_dir + '.zip')
+        else:
+            dldirs = [i async for i in absolute_paths(f'Manga/{file_dir}/')]
+            dldirs.sort()
+            for fls in dldirs:
+                start_time = time.time()
+                await bot.send_document(
+                    update.chat.id,
+                    fls,
+                    caption=fls[:-4],
+                    progress=progress_for_pyrogram,
+                    progress_args=(
+                        'Uploading...',
+                        pablo,
+                        start_time
+                    )
+                )
+                os.remove(fls)
         shutil.rmtree(manga_dir)
         await pablo.delete()
 
@@ -88,21 +107,39 @@ async def _zip(bot, callback_query):
             return
     for file in glob.glob(f'{manga_dir}*/'):
         file_dir = file[8:-1]
-        shutil.make_archive(file_dir, 'zip', file)
-        start_time = time.time()
-        await pablo.edit_text('Uploading...')
-        await bot.send_document(
-            update.chat.id,
-            file_dir + '.zip',
-            caption=file_dir,
-            progress=progress_for_pyrogram,
-            progress_args=(
-                'Uploading...',
-                pablo,
-                start_time
+        if Config.AS_ZIP:
+            shutil.make_archive(file_dir, 'zip', file)
+            start_time = time.time()
+            await pablo.edit_text('Uploading...')
+            await bot.send_document(
+                update.chat.id,
+                file_dir + '.zip',
+                caption=file_dir,
+                progress=progress_for_pyrogram,
+                progress_args=(
+                    'Uploading...',
+                    pablo,
+                    start_time
+                )
             )
-        )
-        os.remove(file_dir + '.zip')
+            os.remove(file_dir + '.zip')
+        else:
+            dldirs = [i async for i in absolute_paths(f'Manga/{file_dir}/')]
+            dldirs.sort()
+            for fls in dldirs:
+                start_time = time.time()
+                await bot.send_document(
+                    update.chat.id,
+                    fls,
+                    caption=fls[:-4],
+                    progress=progress_for_pyrogram,
+                    progress_args=(
+                        'Uploading...',
+                        pablo,
+                        start_time
+                    )
+                )
+                os.remove(fls)
         shutil.rmtree(manga_dir)
         await pablo.delete()
 
