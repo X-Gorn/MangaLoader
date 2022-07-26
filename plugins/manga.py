@@ -69,7 +69,7 @@ async def _pdf(bot, callback_query):
                 await bot.send_document(
                     update.chat.id,
                     fls,
-                    caption=fls[:-4],
+                    caption=fls[-7:-4],
                     progress=progress_for_pyrogram,
                     progress_args=(
                         'Uploading...',
@@ -131,7 +131,7 @@ async def _zip(bot, callback_query):
                 await bot.send_document(
                     update.chat.id,
                     fls,
-                    caption=fls[:-4],
+                    caption=fls[-7:-4],
                     progress=progress_for_pyrogram,
                     progress_args=(
                         'Uploading...',
