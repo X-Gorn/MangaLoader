@@ -1,6 +1,6 @@
 Pyrogram
 TgCrypto
-manga-py==1.32.0
+manga-py==1.5.6
 Pillow==8.3.1
 dir2pdf==0.0.3
 tldextract==3.1.0
